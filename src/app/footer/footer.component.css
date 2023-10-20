@@ -1,0 +1,12 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #343a40; /* Adjust the background color as needed */
+  color: #fff; /* Adjust the text color as needed */
+  padding: 10px;
+}
+
+.content-container {
+  margin-bottom: 60px; /* Adjust the margin to make room for the footer */
+}

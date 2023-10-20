@@ -3,6 +3,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Iprodcts } from '../Iproducts';
 import { OrderCartService } from '../order-cart.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-order-cart',
@@ -49,5 +50,14 @@ export class OrderCartComponent implements OnInit {
   
   formatNumber(value: number): string {
     return (value || 0).toFixed(2);
+  }
+  placeOrder() {
+    this.cart = [];
+    
+    Swal.fire({
+      title: 'Thank you for your order!',
+      icon: 'success',
+      confirmButtonText: 'OK'
+    });
   }
 }

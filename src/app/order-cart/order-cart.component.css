@@ -1,0 +1,18 @@
+.plusbtn{
+  border: none; 
+  outline: none;
+  font-size: 20px;
+  color: red;
+
+}
+.minubtn{
+  border: none; 
+  outline: none;
+  font-size: 30px;
+  color: green;
+}
+.removebtn{
+  border: none; 
+  outline: none;
+  color: red !important;
+}
