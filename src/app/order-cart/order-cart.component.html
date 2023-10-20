@@ -1,1 +1,51 @@
-<p>order-cart works!</p>
+<!-- order-cart.component.html -->
+
+<h2 class="text-center">Shopping Cart</h2>
+
+<div *ngIf="cart.length === 0; else cartNotEmpty" class="container-fluid text-center"  style="height: 800px;">
+  <br>
+  Your shopping Cart is empty...
+  <br>
+  <br>
+  <a routerLink="/"><button class="btn btn-warning">Back to Hompage</button></a>
+</div>
+
+<ng-template #cartNotEmpty>
+  <div style="height: 800px;">
+    <div class="container-fluid d-flex flex-column justify-content-center"  >
+      <div *ngFor="let item of cart" class="cart-item border p-3 d-flex justify-content-between">
+        <div class="d-flex justify-content-start align-items-center">
+          <p class="m-0 mx-auto">{{ item.qtty }}x {{ item.name }}</p>
+          <p class="px-5 m-0"> | </p>
+          <p class="m-0">${{ formatNumber(item.price * item.qtty) }}</p>
+        </div>
+        <div class="d-flex justify-content-end align-items-center">
+          <button (click)="plusQtty(item)" class="btn btn-success">plus</button>
+          <button (click)="minusQtty(item)" class="btn btn-danger">minus</button>
+          <button (click)="deleteItem(item)" class="btn btn-warning">delete</button>
+        </div>
+      </div>
+  
+      <div class="border container w-25 d-flex flex-column justify-content-center align-items-center">
+        <div>Service Fee: {{ formatNumber(calcTotal() * 0.1) }}$</div>
+  
+        <div *ngIf="calcTotal() > 40; else noDiscountLabel" class="text-success">
+          You get a 15% discount!
+          <div>Original Total: {{ formatNumber(calcTotal()) }}$</div>
+        </div>
+    
+        <ng-template #noDiscountLabel>
+          <div *ngIf="calcTotal() > 40">Total with Discount: {{ formatNumber(calcDiscountedTotal()) }}$</div>
+          <div *ngIf="calcTotal() <= 40">Total: {{ formatNumber(calcTotal()) }}$</div>
+        </ng-template>
+    
+        <div>Total (including service fee): {{ formatNumber(calcTotal() + calcTotal() * 0.1) }}$</div>
+  
+      </div>
+  
+    </div>
+
+
+  </div>
+  
+</ng-template>

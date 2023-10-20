@@ -1,0 +1,27 @@
+
+#hero{
+  height: 50dvh;
+  background-image: url(../../assets/img/hero2.jpg);
+  background-size: cover;
+  background-position: 40%;
+}
+
+
+@media (max-width: 576px) {
+  #hero{
+    height: 30dvh;
+  }
+
+}
+
+@media (min-width: 577px) and (max-width: 767px) {
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+}
+
+@media (min-width: 1201px) {
+}
