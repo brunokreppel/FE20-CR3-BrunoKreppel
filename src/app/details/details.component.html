@@ -1,10 +1,15 @@
 <div class="container-fluid" id="hero">
 </div>
-<div class="container-fluid p-5 h1 bg-body-tertiary"><h1 class="text-center m-0 fw-bold display-4"><span class="fw-light" style="font-family: 'Italiana', sans-serif;">Healthy </span>Ingredients</h1></div>
+
+<div class="container-fluid p-5 h1 bg-body-tertiary">
+  <h1 class="text-center m-0 fw-bold display-4">
+    <span class="fw-light" style="font-family: 'Italiana', sans-serif;">Healthy </span>Ingredients
+  </h1>
+</div>
 
 <div class="container mb-5" style="font-family: 'Lato', sans-serif;">
   <section class="product-details">
-    <img src="{{product.image}}" alt="Product Image" class="product-image rounded">
+    <img [src]="product.image" alt="Product Image" class="product-image rounded">
     <div class="product-info mx-0 px-0 d-flex flex-column align-items-center">
       <h2 class="fw-bold">{{product.name}}</h2>
       <p>{{product.description}}</p>
@@ -13,12 +18,11 @@
         <ul class="list-unstyled custom-dot-list">
           <li *ngFor="let ingredient of product.ingredients" class="mb-2">{{ingredient}}</li>
         </ul>
-
       </div>
       <div>
-        <button class="btn btn-sm btn-outline-success rounded" (click)="addToOrderCart3()">          
-          <p *ngIf="product.availability === false" class="p-0 m-0">Out of Order</p>
-          <p *ngIf="product.availability === true" class="p-0 m-0"> Order for ${{product.price}}</p>
+        <button class="btn btn-sm btn-outline-success rounded" (click)="addToOrderCart3()">
+          <p *ngIf="!product.availability" class="p-0 m-0">Out of Order</p>
+          <p *ngIf="product.availability" class="p-0 m-0"> Order for ${{product.price}}</p>
         </button>
       </div>
     </div>

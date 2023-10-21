@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Iprodcts } from '../Iproducts';
-import { ActivatedRoute, Params, Router } from '@angular/router'; // Import Router
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { OrderCartService } from '../order-cart.service';
 import { products } from '../products';
+import { Iprodcts } from '../Iproducts';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,7 +14,7 @@ export class DetailsComponent implements OnInit {
   product: Iprodcts = {} as Iprodcts;
   id: number = 0;
 
-  constructor(private route: ActivatedRoute, private cartService: OrderCartService, private router: Router) {} // Inject Router
+  constructor(private route: ActivatedRoute, private cartService: OrderCartService, private router: Router) {}
 
   addToOrderCart3() {
     Swal.fire({
@@ -26,10 +26,10 @@ export class DetailsComponent implements OnInit {
       cancelButtonText: 'Continue Shopping',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.router.navigate(['/order-cart']); 
+        this.router.navigate(['/order-cart']);
       }
     });
-    
+
     this.cartService.addToOrderCart(this.product);
   }
 

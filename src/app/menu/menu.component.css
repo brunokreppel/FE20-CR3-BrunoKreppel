@@ -1,25 +1,13 @@
-#hero{
+#hero {
   height: 50dvh;
   background-image: url(../../assets/img/hero.jpg);
   background-size: cover;
   background-position: 100% 70%;
   font-family: 'Italiana', sans-serif !important;
 }
+
 @media (max-width: 576px) {
-  #hero{
+  #hero {
     height: 30dvh;
   }
-
-}
-
-@media (min-width: 577px) and (max-width: 767px) {
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-}
-
-@media (min-width: 992px) and (max-width: 1200px) {
-}
-
-@media (min-width: 1201px) {
 }

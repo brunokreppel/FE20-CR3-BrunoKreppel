@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent {
-  products: Array<Iprodcts> = products;
+  products: Iprodcts[] = products;
 
   constructor(private cartService: OrderCartService, private router: Router) {}
 
@@ -26,10 +26,10 @@ export class MenuComponent {
       cancelButtonText: 'Continue Shopping',
     }).then((result) => {
       if (result.isConfirmed) {
-        this.router.navigate(['/order-cart']); 
+        this.router.navigate(['/order-cart']);
       }
     });
-  
+
     this.cartService.addToOrderCart(selectedProduct);
   }
 }
